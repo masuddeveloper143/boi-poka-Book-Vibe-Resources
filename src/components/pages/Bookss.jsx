@@ -1,5 +1,6 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { data } from 'react-router';
+import Book from '../Book/Book';
 
 const Bookss = () => {
     const [allBooks, setAllBooks] = useState([]);
@@ -18,7 +19,7 @@ const Bookss = () => {
         <div>
             <h1 className='text-3xl text-center font-bold'>Books</h1>
             <Suspense fallbackP={<span>Loading......</span>}>
-                <Bookss bookPromise={bookPromise} ></Bookss>
+                <Book bookPromise={bookPromise}></Book>
             </Suspense>
         </div>
     );

@@ -13,13 +13,14 @@ import Home from './Home/Home';
 export const router = createBrowserRouter([
     {
         path: "/",
-        Component:Root,
-        errorElement:<ErrorPgae></ErrorPgae>,
-        children:[
+        Component: Root,
+        errorElement: <ErrorPgae></ErrorPgae>,
+        children: [
             {
                 index: true,
-                path:"/",
-                Component:Home
+                loader: () => fetch('booksData.json'),
+                path: "/",
+                Component: Home
             }
         ]
     },
