@@ -10,10 +10,9 @@ const Book = ({ sigelBook }) => {
     // console.log(data);
     // console.log(sigelBook);
     return (
-        <div className="card bg-base-100 w-96 shadow-sm">
+        <div className="card bg-base-100 w-96 shadow-sm border">
             <figure className='p-3'>
-                <img
-                    src={image}
+                <img className='h-[166px]' src={image}
                     alt="Shoes" />
             </figure>
             <div className="card-body">
