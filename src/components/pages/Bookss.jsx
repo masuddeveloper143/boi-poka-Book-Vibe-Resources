@@ -21,9 +21,11 @@ const Bookss = ({ data }) => {
             <Suspense fallback={<span>Loading......</span>}>
                 {/* <Book bookPromise={bookPromise}></Book> */}
 
-                {
-                    data.map((sigelBook) => <Book key={sigelBook.bookId} sigelBook={sigelBook}></Book>)
-                }
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                    {
+                        data.map((sigelBook) => <Book key={sigelBook.bookId} sigelBook={sigelBook}></Book>)
+                    }
+                </div>
             </Suspense>
         </div>
     );
