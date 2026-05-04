@@ -1,19 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { data } from 'react-router';
 
 const Bookss = () => {
     const [allBooks, setAllBooks] = useState([]);
 
-    useEffect(() => {
-        fetch("booksData.json")
-            .then(res => res.json())
-            .then(data=>{
-                setAllBooks(data)
-            })
-    }, [])
+    // useEffect(() => {
+    //     fetch("booksData.json")
+    //         .then(res => res.json())
+    //         .then(data=>{
+    //             setAllBooks(data)
+    //         })
+    // }, [])
+
+    const bookPromise = fetch('./booksData.json').then(res => res.json())
+
     return (
         <div>
             <h1 className='text-3xl text-center font-bold'>Books</h1>
+            <Suspense fallbackP={<span>Loading......</span>}>
+                <Bookss bookPromise={bookPromise} ></Bookss>
+            </Suspense>
         </div>
     );
 };
