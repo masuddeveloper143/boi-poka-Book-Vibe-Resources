@@ -2,7 +2,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { data } from 'react-router';
 import Book from '../Book/Book';
 
-const Bookss = () => {
+const Bookss = ({ data }) => {
     const [allBooks, setAllBooks] = useState([]);
 
     // useEffect(() => {
@@ -13,13 +13,17 @@ const Bookss = () => {
     //         })
     // }, [])
 
-    const bookPromise = fetch('./booksData.json').then(res => res.json())
+    // const bookPromise = fetch('./booksData.json').then(res => res.json())
 
     return (
         <div>
             <h1 className='text-3xl text-center font-bold'>Books</h1>
-            <Suspense fallbackP={<span>Loading......</span>}>
-                <Book bookPromise={bookPromise}></Book>
+            <Suspense fallback={<span>Loading......</span>}>
+                {/* <Book bookPromise={bookPromise}></Book> */}
+
+                {
+                    data.map((sigelBook) => <Book key={sigelBook.bookId} sigelBook={sigelBook}></Book>)
+                }
             </Suspense>
         </div>
     );
