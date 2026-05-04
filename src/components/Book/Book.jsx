@@ -3,7 +3,7 @@ import { FaStarHalfAlt } from "react-icons/fa";
 
 const Book = ({ sigelBook }) => {
 
-    const { bookName, author, image, rating, tags } = sigelBook;
+    const { bookName, author, image, rating, tags, yearOfPublishing,publisher} = sigelBook;
 
 
 
@@ -25,9 +25,13 @@ const Book = ({ sigelBook }) => {
                 </div>
                 <h2 className="card-title">
                     Card Title
-                    <div className="badge badge-secondary">NEW</div>
+                    <div className="badge badge-secondary">{yearOfPublishing}</div>
                 </h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                <p>Book by:{publisher}</p>
+
+                <div className='border-t-2'>
+                    
+                </div>
                 <div className="card-actions justify-end">
                     <div className="badge badge-outline">Fashion</div>
                     <div className="badge badge-outline">{rating} <FaStarHalfAlt /></div>
