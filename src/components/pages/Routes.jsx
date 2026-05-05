@@ -8,6 +8,9 @@ import {
 import Root from './root/Root';
 import ErrorPgae from './ErrorPgae/ErrorPgae';
 import Home from './Home/Home';
+import About from '../About/About';
+import BookDetails from '../BookDetails/BookDetails';
+
 
 
 export const router = createBrowserRouter([
@@ -19,8 +22,19 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 loader: () => fetch('booksData.json'),
-                path: "/",
+                path: "/home",
                 Component: Home
+            },
+
+            {
+                path: "/about",
+                Component: About
+            },
+
+            {
+                path: '/bookDetails/:id',
+                loader: () => fetch('/booksData.json'),
+                Component:BookDetails
             }
         ]
     },
