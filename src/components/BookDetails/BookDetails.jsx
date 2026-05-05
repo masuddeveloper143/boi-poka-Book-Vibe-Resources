@@ -7,7 +7,12 @@ const BookDetails = () => {
     // const bookId = parseInt(id)
     const data = useLoaderData();
     const singleBook = data.find(book => book.bookId === parseInt(id));
-    const { bookName, image } = singleBook;
+    const { bookName, image } = singleBook || {};
+
+
+    const handleMarkAsRead = id =>{
+
+    }
 
     return (
         <div className='w-2/3 mx-auto'>
