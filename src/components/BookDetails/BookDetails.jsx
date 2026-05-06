@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { addToStoredDB } from '../../utility/addToDB';
 
 const BookDetails = () => {
 
@@ -10,7 +11,9 @@ const BookDetails = () => {
     const { bookName, image } = singleBook || {};
 
 
-    const handleMarkAsRead = id =>{
+    const handleMarkAsRead = id => {
+
+        addToStoredDB(id);
 
     }
 
@@ -19,7 +22,7 @@ const BookDetails = () => {
             <img className='w-48' src={image} alt="" />
             <h4>{bookName}</h4>
 
-            <button className="btn btn-info m-2">mar as read </button>
+            <button onClick={() => handleMarkAsRead(id)} className="btn btn-info m-2">mar as read </button>
             <button className="btn btn-success m-2">Add to Wishlist</button>
         </div>
     );
