@@ -10,6 +10,7 @@ import ErrorPgae from './ErrorPgae/ErrorPgae';
 import Home from './Home/Home';
 import About from '../About/About';
 import BookDetails from '../BookDetails/BookDetails';
+import ReadList from '../ReadList/ReadList';
 
 
 
@@ -32,9 +33,15 @@ export const router = createBrowserRouter([
             },
 
             {
+                path: '/readList',
+                loader: () => fetch('booksData.json'),
+                Component: ReadList
+            },
+
+            {
                 path: '/bookDetails/:id',
                 loader: () => fetch('/booksData.json'),
-                Component:BookDetails
+                Component: BookDetails
             }
         ]
     },
